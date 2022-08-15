@@ -1,0 +1,1 @@
+web: gunicorn --limit-request-line 0 app:app 
