@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div>
+
+<p align="justify" style="width:900px; margin-left:6.2em; font-size:18px">The current WordPsych application has been trained by data from reddit.com. First, we searched for reddit groups (subreddits) specific to a mental health problem, like r/depression and r/anxiety. Next, the members of these groups were identified by their reddit IDs. Lastly, we searched for posts/comments by these authors all over the reddit (other subreddits than the original mental health related ones) and gathered around a billion pieces of text.</p> 
+
+</div>
+
+<p align="justify" style="width:900px; margin-left:6.2em; font-size:18px">Some of the labels are aggregate of two or more subgroups. For example, personality disorders have been grouped into the three well-known conventional Clusters A, B, and C, each of which includes several diagnoses. In the following table you'll find the list of final labels included in our analysis, their sample size and their corresponding original subreddits.</p>
+
+<div><br>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin-left:6.5em}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:10pt;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:10pt;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky">labels</th>
+    <th class="tg-0pky">counts<br>(millions)</th>
+    <th class="tg-0pky">subreddit 1</th>
+    <th class="tg-0lax"><span style="font-weight:400;font-style:normal">subreddit 2</span></th>
+    <th class="tg-0lax"><span style="font-weight:400;font-style:normal">subreddit 3</span></th>
+    <th class="tg-0lax"><span style="font-weight:400;font-style:normal">subreddit 4</span></th>
+    <th class="tg-0lax"><span style="font-weight:400;font-style:normal">subreddit 5</span></th>
+    <th class="tg-0lax"><span style="font-weight:400;font-style:normal">subreddit 6</span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">anxiety</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">115.900</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">anxiety</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+    <tr>
+    <td class="tg-0pky">socialanxiety</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">43.700</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">socialanxiety</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ptsd</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">47.698</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">ptsd</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">CPTSD</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">ocd</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">28.456</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">OCD</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+    <tr>
+    <td class="tg-0pky">phobia</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">11.817</span></td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">Phobia</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Agoraphobia</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal"></span>emetophobia</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">depression</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">139.531</span></td>
+    <td class="tg-0pky">depression</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">bipolar</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">51.591</span></td>
+    <td class="tg-0pky">bipolar</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">BipolarReddit</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">sadness</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">18.774</span></td>
+    <td class="tg-0pky">sad</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">adhd</td>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal">125.454</span></td>
+    <td class="tg-0pky">ADHD</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Autism</td>
+    <td class="tg-0pky">100.402</td>
+    <td class="tg-0pky">autism</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">aspergers</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AutismInWomen</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">asperger</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">aspergirls</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AutisticAdults</span></td>
+
+  </tr>
+  <tr>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0lax"><span>AutisticQueers</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Aspergers_Elders</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Aspergers_Elders</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AutismTranslated</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AutisticPride</span></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">schizophrenia</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">20.126</span></td>
+    <td class="tg-0lax">schizophrenia<br></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">schizoaffective</span></td>
+    <td class="tg-0lax">paranoidschizophrenia</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Psychosis</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">cluster_a</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">5.640</span></td>
+    <td class="tg-0lax">Schizoid</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Schizotypal</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Paranoid</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">ParanoidPersonality</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">ParanoiaCheck</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Paranoia</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">cluster_b</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">60.288</span></td>
+    <td class="tg-0lax">BorderlinePDisorder</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">Borderline</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">BPD</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">narcissism</span></td>
+    <td class="tg-0lax">NPD</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">hpd</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">cluster_c</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">1.728</span></td>
+    <td class="tg-0lax">Avoidant<br></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AvPD</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">DPD</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">OCPD</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">selfharm</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">32.624</span></td>
+    <td class="tg-0lax">selfharm</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">StopSelfHarm</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AdultSelfHarm</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">SuicideWatch</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">addiction</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">31.834</span></td>
+    <td class="tg-0lax">addiction</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">alcoholism</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">eating</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">27.974</span></td>
+    <td class="tg-0lax">EatingDisorders<br></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">eating_disorders</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">bulimia</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">ARFID</span></td>
+    <td class="tg-0lax">EDAnonymous</td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">dpdr</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">8.600</span></td>
+    <td class="tg-0lax">dpdr</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">dysmorphic</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">8.977</span></td>
+    <td class="tg-0lax">DysmorphicDisorder</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">BodyAcceptance</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">anger</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">8.566</span></td>
+    <td class="tg-0lax">Anger</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">tourettes</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">4.990</span></td>
+    <td class="tg-0lax">Tourettes</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">general</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">36.425</span></td>
+    <td class="tg-0lax">mentalhealth<br></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">mentalillness</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">MentalHealthPH</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">MentalHealthSupport</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">mental</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">personalitydisorders</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">control</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">32.777</span></td>
+    <td class="tg-0lax">askscience</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">LifeProTips</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AskReddit</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">answers</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">AskScienceFiction</span></td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">TrueAskReddit</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Total</td>
+    <td class="tg-0lax"><span style="font-weight:400;font-style:normal">963.872</span></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+  </tr>
+</tbody>
+</table>
+
+</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}
