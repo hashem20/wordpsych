@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	<div align="justify" style="width:900px; margin-left:7em;">
+		<h5>Your input:</h5>
+		<p>{{ text }}</p>
+
+		{% if pred %}
+			<h5>Results:</h5><br>
+				<style type="text/css">
+					.tg  {border-collapse:collapse;border-spacing:0;}
+					.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+					  overflow:hidden;padding:10px 5px;word-break:normal;}
+					.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+					  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+					.tg .tg-0lax{text-align:left;vertical-align:top}
+				</style>
+				<table class="tg">
+				<thead>
+				  <tr>
+				    <th class="tg-0lax">Label</th>
+				    <th class="tg-0lax">Score (0-1)</th>
+				    <th class="tg-0lax">Description</th>
+				  </tr>
+				</thead>
+				<tbody>
+					{% for i in counts %}
+
+					  <tr>
+		    			<td class="tg-0lax">{{ labels[i] }}</td>
+			    		<td class="tg-0lax"><span style="font-weight:400;font-style:normal">{{ pred[i] }}</span></td>
+			    		<td class="tg-0lax"><span style="font-weight:400;font-style:normal">{{ desc[i] }}</span></td>
+				  	  </tr>
+
+					{% endfor %}
+
+				</tbody>
+				</table>
+
+			<img src="data:image/png;base64, {{ plot_url }}">
+  
+		{% endif %}
+	</div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock content %}
