@@ -125,7 +125,7 @@ def results():
 		'tourettes':'Tourette Syndrome',
 		'anger':'Anger Control issues'}
 
-		hash_tfi = pickle.load(open('hash_tfi_1000.pkl', 'rb'))
+		hash_tfi = pickle.load(open('hash_tfi_800.pkl', 'rb'))
 		clf = pickle.load(open('MNB_stop_Bi_Tfi_N9613_L500_0.213.pkl', 'rb'))
 		labels = list(clf.classes_)
 		x_tr = hash_tfi.transform([text])
@@ -229,14 +229,74 @@ def why():
 	return render_template('why.html', title='WordPsych-why')
 
 
-@app.route('/how/')
-def how():
-	return render_template('how.html', title='WordPsych-how')
-
-
 @app.route('/dataset/')
 def dataset():
-	return render_template('dataset.html', title='WordPsych-data')
+    lst = [
+    ('depression', 11.304),
+    ('adhd', 12.304),
+    ('anxiety', 10.271),
+    ('autism', 10.315),
+    ('cluster_b', 6.026),
+    ('bipolar', 5.027),
+    ('ptsd', 5.818),
+    ('socialanxiety', 3.419),
+    ('general', 3.327),
+    ('control', 3.229),
+    ('selfharm', 2.43),
+    ('addiction', 2.76),
+    ('ocd', 2.603),
+    ('eating', 2.626),
+    ('schizophrenia', 1.901),
+    ('sadness', 0.997),
+    ('phobia', 1.062),
+    ('dysmorphic', 0.97),
+    ('dpdr', 0.808),
+    ('anger', 0.762),
+    ('cluster_a', 0.617),
+    ('tourettes', 0.413),
+    ('cluster_c', 0.203)]
+    LST = [('depression', 139.531461),
+    ('adhd', 125.45403),
+    ('anxiety', 115.9),
+    ('autism', 101.039804),
+    ('cluster_b', 60.288147),
+    ('bipolar', 51.590906),
+    ('ptsd', 47.698102),
+    ('socialanxiety', 43.7),
+    ('general', 36.424827),
+    ('control', 32.777371),
+    ('selfharm', 32.623954),
+    ('addiction', 31.83386),
+    ('ocd', 28.456335),
+    ('eating', 27.973656),
+    ('schizophrenia', 20.126049),
+    ('sadness', 18.774087),
+    ('phobia', 11.817137),
+    ('dysmorphic', 8.976985),
+    ('dpdr', 8.6),
+    ('anger', 8.565897),
+    ('cluster_a', 5.639788),
+    ('tourettes', 4.98961),
+    ('cluster_c', 1.727758)]
+    plt.figure(figsize=(9.1,6))
+    plt.bar(list(map(lambda x:x[0], LST)),list(map(lambda x:x[1], LST)), label = 'all texts', alpha=.7)
+    plt.bar(list(map(lambda x:x[0], LST)),list(map(lambda x:x[1], lst)), label = 'text_length > 500 characters')
+    plt.legend()
+    plt.title('Sample size per groups: There are quite large imbalances in our dataset')
+    plt.ylabel('sample size (millions)')
+    plt.xticks(rotation = 70)
+    plt.tight_layout()
+    img2 = BytesIO()
+    plt.savefig(img2, format='png')
+    plt.close()
+    img2.seek(0)
+    plot_url = base64.b64encode(img2.getvalue()).decode('utf8')
+    return render_template('dataset.html', plot_url=plot_url, title='WordPsych-data')
+
+
+@app.route('/how/')
+def how():
+    return render_template('how.html',  title='WordPsych-how')
 
 
 @app.route('/tryit/')
