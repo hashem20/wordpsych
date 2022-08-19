@@ -2,36 +2,46 @@
 {% block content %}
 
 <div>
-    <p align="justify" style="width:900px; margin-left:4.7em; font-size:24px">Here we have one billion texts, each associated with one or more
-        labels (a person can belong to more than one group) and the task is to build a <a href="https://en.wikipedia.org/wiki/Machine_learning">
-        machine learning</a>model that learns what kinds of texts belong to which label. If everything goes well, the model should be able to 
-        correctly predict labels of new unlabled texts. This task is a classification task that belongs to the more general category of 
-        <a href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a>. Supervised means that we provided machine with the 
-        correct labels during training (in contrast to "clustering", for example, in which we don't have any labels). Here we used several 
-        machine learning algorithms including <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">MultiNomial Naive Bayes classifier</a>
-        and <a href="https://en.wikipedia.org/wiki/Deep_learning">Deep Neural Netwroks</a>. Before we implement these models, we need to translate
-        the text into numbers so the machine would understand it. This is a <a href="https://en.wikipedia.org/wiki/Feature_extraction">
-        Feature Extraction</a> process in which we define wich features should be selected, built or engineered to best represent our inputs (texts).
-        For this <a href="https://en.wikipedia.org/wiki/Natural_language_processing">
-        Natural Language Processing</a> task we implemented a variety of encoding algorithms from a simple 
-        <a href="https://en.wikipedia.org/wiki/Bag-of-words_model"></a>Bag-of-Words model, to more complicated ones like <a href="https://en.wikipedia.org/wiki/Word2vec">
-        Word2vec</a> and <a href="https://en.wikipedia.org/wiki/BERT_(language_model)">BERT Model</a>.
+    <p align="justify" style="width:900px; margin-left:5em; font-size:18px">Here we have one billion texts, each associated with one or more
+        labels (a person can belong to more than one group) and the task is to build a 
+        <a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank" rel="noopener noreferrer">  
+        machine learning</a> model that learns what kinds of texts belong to which label. If everything goes well, the model should be able to 
+        correctly predict labels of new unlabled texts. This task is a <a href="https://en.wikipedia.org/wiki/Statistical_classification" 
+        target="_blank" rel="noopener noreferrer">classification task</a> that belongs to the more general category of 
+        <a href="https://en.wikipedia.org/wiki/Supervised_learning" target="_blank" rel="noopener noreferrer"> supervised learning</a>. 
+        Supervised means that we provided the machine with the correct labels during training (in contrast to an unsupervised task like 
+        "clustering", for example, in which we don't have any labels). Here we used several machine learning algorithms including 
+        <a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier" target="_blank" rel="noopener noreferrer"> MultiNomial Naive Bayes 
+        classifier</a> and <a href="https://en.wikipedia.org/wiki/Deep_learning" target="_blank" rel="noopener noreferrer"> 
+        Deep Neural Netwroks</a>. Before we implement these models, we need to translate the text into numbers so the machine would understand them. 
+        This is a <a href="https://en.wikipedia.org/wiki/Feature_extraction" target="_blank" rel="noopener noreferrer">
+        Feature Extraction</a> process, in which we define which features should be either selected, built or engineered to feed into model 
+        as the best representation of our texts. 
+        For this <a href="https://en.wikipedia.org/wiki/Natural_language_processing" target="_blank" rel="noopener noreferrer">
+        Natural Language Processing</a> task, we implemented a variety of encoding algorithms ranging from a simple 
+        <a href="https://en.wikipedia.org/wiki/Bag-of-words_model" target="_blank" rel="noopener noreferrer"></a> Bag-of-Words model, 
+        to more complicated ones like <a href="https://en.wikipedia.org/wiki/Word2vec" target="_blank" rel="noopener noreferrer"> 
+        Word2vec</a> and <a href="https://en.wikipedia.org/wiki/BERT_(language_model)" target="_blank" rel="noopener noreferrer"> BERT Model</a>.
     </p>
 </div>
+
+<div><br></div>
 
 <div>
     <img src = "{{url_for('static', filename='flowchart.png')}}" width="700" style="vertical-align:middle;margin:0px 180px"/>
 </div>
 
+<div><br><br></div>
+
 <div>
-    <p align="justify" style="width:900px; margin-left:4.7em; font-size:24px">In this Github repository, you can find the implementation 
+    <p align="justify" style="width:900px; margin-left:5em; font-size:18px">In this Github repository, you can find the implementation 
         of several classical machine learning classification algorithms (most notably the MultiNomial Naive Bayes) and another classification 
         algorithm from the deep-learning category: BERT-based neural network implementation. You can also find the codes used to download the 
-        data from reddit and also the Flask codes which implemented this website: </thead></datagrid>:  <a href="https://github.com/hashem20/wordpsych">
+        data from reddit and also the Flask codes used to implement the current website:  <a href="https://github.com/hashem20/wordpsych">
             https://github.com/hashem20/wordpsych</a></p>
 </div>
 
-
+<div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
 
 {% endblock %}
 
