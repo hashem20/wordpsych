@@ -138,6 +138,7 @@ def results():
 		rescale = lambda y: (y - min(y)) / (max(y) - min(y))
 		plt.figure(figsize=(9.1,6))
 		plt.bar(labels, pred, color=my_cmap(rescale(pred)))
+		plt.ylabel('similarity score')
 		plt.xticks(rotation = 70)
 		plt.tight_layout()
 		img = BytesIO()
@@ -298,11 +299,13 @@ def dataset():
 def how():
     return render_template('how.html',  title='WordPsych-how')
 
+@app.route('/github/')
+def github():
+    return render_template('github.html',  title='WordPsych-git')
 
 @app.route('/tryit/')
 def tryit():
 	return render_template('tryit.html', title='WordPsych-tryit')
-
 
 @app.route('/contact/')
 def contact():
